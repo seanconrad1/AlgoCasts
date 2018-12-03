@@ -17,14 +17,30 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-  let counter = n - 1
-  for (var i = 1; i <= n; i++) {
-    console.log('#'.repeat(i) + ' '.repeat(counter))
-    counter --
+// function steps(n) {
+//   let counter = n - 1
+//   for (var i = 1; i <= n; i++) {
+//     console.log('#'.repeat(i) + ' '.repeat(counter))
+//     counter --
+//   }
+// }
+
+function steps(n, row = 0, stair = '') {
+  if (n === row){
+    return
   }
+
+  if (n === stair.length){
+    console.log(stair)
+    return steps(n, row + 1)
+  }
+
+  const add = stair.length <= row ? '#' : ' '
+  steps(n, row, stair + add)
 }
 
-steps(3)
+
+
+steps(25)
 
 module.exports = steps;
