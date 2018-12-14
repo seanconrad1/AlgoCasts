@@ -7,9 +7,9 @@ function sameChars(str1, str2) {
   if (str1.length > str2.length) {
     charMap = createCharMap(str2)
     keys = Object.keys(charMap)
-    for(let char of str1){
+    for(let char of str1){ //0(n)
       if(keys.includes(char)){
-        return true
+        return true //O(1)
       }
     }
     return false
@@ -28,20 +28,13 @@ function sameChars(str1, str2) {
 
 function createCharMap(str) {
   let charMap = {}
-  for(let char of str){
+  for(let char of str){  //0(n)
     if (charMap[char]) {
-      charMap[char]++
+      charMap[char]++ //0(1)
     }else {
       charMap[char] = 1
     }
   }
   return charMap
 }
-
-// }else {
-//   charMap = createCharMap(str1)
-//   if (let char of str2.includes(Object.keys(charMap))) {
-//     console.log('true');
-//   }else {
-//     console.log('false');
-//   }
+// O(n)
