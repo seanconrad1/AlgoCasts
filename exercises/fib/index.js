@@ -53,7 +53,7 @@ function getSum(array){
   }
   return total
 }
-console.log(getSum(arr))
+getSum(arr)
 
 
 module.exports = fib;
