@@ -2,8 +2,100 @@
 // Implement classes Node and Linked Lists
 // See 'directions' document
 
-class Node {}
 
-class LinkedList {}
+class Node {
+  constructor(data, next=null){
+    this.data = data,
+    this.next = next
+  }
+}
+
+class LinkedList {
+  constructor(){
+    this.head = null
+  }
+
+  insertFirst(data){
+    if (this.head) {
+      this.head = new Node(data, this.head)
+    }else {
+      this.head = new Node(data)
+    }
+  }
+
+  size(){
+    let counter = 0
+    let node = this.head
+
+    while (node) {
+      counter ++
+      node = node.next
+    }
+    return counter
+  }
+
+  getFirst(){
+    return this.head
+  }
+
+  getLast(){
+    if (!this.head) {
+      return null
+    }
+
+    let node = this.head
+    while(node){
+      if (!node.next) {
+        return node
+      }else {
+        node = node.next
+      }
+    }
+  }
+
+  clear(){
+    this.head = null
+  }
+
+  removeFirst(){
+    if (!this.head) {
+      return null
+    }
+
+    this.head = this.head.next
+    return this.head
+  }
+
+  // removeLast(){
+  //   if (!this.head) {
+  //     return null
+  //   }
+  //
+  //   let prevNode = ''
+  //   let node = this.head
+  //   while (node) {
+  //       if (node.next && node.next === null) {
+  //         prevNode.next = null
+  //         break
+  //       }else {
+  //         prevNode = node
+  //         node = node.next
+  //       }
+  //     }
+  //     return prevNode
+  // }
+
+}
+
+
+const list = new LinkedList();
+list.insertFirst('a');
+list.insertFirst('b');
+list.insertFirst('c');
+
+list.removeLast()
+console.log('Last: ', list.getLast());
+console.log('size: ', list.size()) // returns 1
+console.log('last:', list.getLast()) // returns node with data of 'b'
 
 module.exports = { Node, LinkedList };
