@@ -86,21 +86,42 @@ class LinkedList {
   }
 
   insertLast(data){
-    let node = this.getLast()
-    node.next = new Node(data)
+    const last = this.getLast()
+
+    if(last){
+      last.next = new Node(data)          // nodes exist
+    }else {
+      this.head = new Node(data)         // no nodes exists
+    }
+
   }
 
-  getAt(){
+  getAt(num){
+    if (!this.head) {
+      return null
+    }
 
+    let counter = 0
+    let node = this.head
 
+    while (node) {
+      if (node.next === null) {
+        return null
+      }else if (num === counter) {
+        return node
+      }
+      counter ++
+      node = node.next
+    }
   }
 
 }
 
-const list = new LinkedList();
-list.insertFirst('a');
-list.insertFirst('b');
-list.insertLast('c');
-console.log(list.getLast()) // returns node with data 'C'
+const l = new LinkedList();
+l.insertLast(1);
+l.insertLast(2);
+// l.insertLast(3);
+// l.insertLast(4);
+// console.log(list.getAt(0)) // returns node with data 'b'
 
 module.exports = { Node, LinkedList };
