@@ -124,6 +124,26 @@ class LinkedList {
       return
     }
     previous.next = previous.next.next
+  }
+
+  insertAt(data, num){
+
+    // const previousNode = this.getAt(num - 1)
+    // const nextNode = this.getAt(num + 1)
+    let node = this.head
+
+    if (!this.getAt(num)) {
+      this.insertLast(data)
+    }else if(this.size() === 0){
+      this.insertFirst(data)
+    }else if (this.size() > 0 && num === 0) {
+      this.insertFirst(data)
+    }else if(this.size() > 0){
+      const nextNode = this.getAt(num)
+      const previousNode = this.getAt(num - 1)
+      let newNode = new Node(data, nextNode)
+      previousNode.next = newNode
+    }
 
 
   }
@@ -131,18 +151,12 @@ class LinkedList {
 }
 
 const list = new LinkedList();
-list.insertFirst('a'); // 4
-list.insertFirst('b'); // 3
-list.insertFirst('c'); // 2
-list.insertFirst('d'); // 1
-list.insertFirst('e'); // 0
-//
-// list.removeAt(0);
-// list.removeAt(1);
-// list.removeAt(2);
-
-// console.log(list.getAt(4))
-list.removeAt(10)
+list.insertFirst('a'); 2
+list.insertFirst('b'); 1
+list.insertFirst('c'); 0
+list.insertAt('Hi', 12)
+console.log(list);
+// console.log(list.getAt(1)) // returns node with data 'Hi'
 
 
 module.exports = { Node, LinkedList };
