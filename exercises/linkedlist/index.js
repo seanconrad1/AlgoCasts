@@ -100,10 +100,8 @@ class LinkedList {
     if (!this.head) {
       return null
     }
-
     let counter = 0
     let node = this.head
-
     while (node) {
       if (num === counter) {
         return node
@@ -113,12 +111,37 @@ class LinkedList {
     }
   }
 
+  removeAt(num){
+    if (!this.head) {
+      return null
+    }
+
+    let counter = 0
+    let node = this.head
+
+    while (node) {
+      if (counter === num) {
+        node = null
+      }else {
+        node = node.next
+      }
+      counter ++
+    }
+
+  }
+
 }
 
 const list = new LinkedList();
 list.insertFirst('a');
 list.insertFirst('b');
 list.insertFirst('c');
-console.log(list.getAt(0))// returns node with data 'b'
+list.insertFirst('d');
+list.insertFirst('e');
+
+list.removeAt(3);
+console.log(list)
+// list.removeAt(1);
+// list.removeAt(2);
 
 module.exports = { Node, LinkedList };
