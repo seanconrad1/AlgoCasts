@@ -120,7 +120,7 @@ class LinkedList {
     }
 
     const previous = this.getAt(num - 1)
-    if(!previous){
+    if(!previous || !previous.next){
       return
     }
     previous.next = previous.next.next
