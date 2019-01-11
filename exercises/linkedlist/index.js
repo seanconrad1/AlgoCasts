@@ -127,11 +127,6 @@ class LinkedList {
   }
 
   insertAt(data, num){
-
-    // const previousNode = this.getAt(num - 1)
-    // const nextNode = this.getAt(num + 1)
-    let node = this.head
-
     if (!this.getAt(num)) {
       this.insertLast(data)
     }else if(this.size() === 0){
