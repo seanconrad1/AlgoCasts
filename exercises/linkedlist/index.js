@@ -105,9 +105,7 @@ class LinkedList {
     let node = this.head
 
     while (node) {
-      if (node.next === null) {
-        return null
-      }else if (num === counter) {
+      if (num === counter) {
         return node
       }
       counter ++
@@ -117,11 +115,10 @@ class LinkedList {
 
 }
 
-const l = new LinkedList();
-l.insertLast(1);
-l.insertLast(2);
-// l.insertLast(3);
-// l.insertLast(4);
-// console.log(list.getAt(0)) // returns node with data 'b'
+const list = new LinkedList();
+list.insertFirst('a');
+list.insertFirst('b');
+list.insertFirst('c');
+console.log(list.getAt(0))// returns node with data 'b'
 
 module.exports = { Node, LinkedList };
