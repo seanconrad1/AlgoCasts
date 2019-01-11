@@ -85,8 +85,22 @@ class LinkedList {
     prevNode.next = null
   }
 
+  insertLast(data){
+    let node = this.getLast()
+    node.next = new Node(data)
+  }
+
+  getAt(){
+
+
+  }
+
 }
 
-
+const list = new LinkedList();
+list.insertFirst('a');
+list.insertFirst('b');
+list.insertLast('c');
+console.log(list.getLast()) // returns node with data 'C'
 
 module.exports = { Node, LinkedList };
