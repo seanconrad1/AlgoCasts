@@ -66,36 +66,27 @@ class LinkedList {
     return this.head
   }
 
-  // removeLast(){
-  //   if (!this.head) {
-  //     return null
-  //   }
-  //
-  //   let prevNode = ''
-  //   let node = this.head
-  //   while (node) {
-  //       if (node.next && node.next === null) {
-  //         prevNode.next = null
-  //         break
-  //       }else {
-  //         prevNode = node
-  //         node = node.next
-  //       }
-  //     }
-  //     return prevNode
-  // }
+  removeLast(){
+    if (!this.head) {
+      return
+    }
+
+    if(!this.head.next){
+      this.head = null
+      return
+    }
+
+    let prevNode = this.head
+    let node = this.head.next
+    while (node.next){
+      prevNode = node
+      node = node.next
+    }
+    prevNode.next = null
+  }
 
 }
 
 
-const list = new LinkedList();
-list.insertFirst('a');
-list.insertFirst('b');
-list.insertFirst('c');
-
-list.removeLast()
-console.log('Last: ', list.getLast());
-console.log('size: ', list.size()) // returns 1
-console.log('last:', list.getLast()) // returns node with data of 'b'
 
 module.exports = { Node, LinkedList };
